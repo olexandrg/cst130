@@ -1,0 +1,44 @@
+﻿//GET INPUT AND DIFFERENCE
+		INPUT
+        STORE X
+        INPUT
+        STORE Y
+        LOAD X
+        SUBT Y
+        STORE ABS   
+//CHECK IF DIFFERENCE IS NEG 
+		LOAD ABS
+        SKIPCOND 800
+        JUMP LOOP
+//ABS VALUE LOOP
+ABS_C,  LOAD X
+        OUTPUT
+        LOAD Y
+        OUTPUT
+        LOAD ABS
+        OUTPUT
+//GET PRODUCT
+PR_L,	LOAD PRD
+		ADD X
+        STORE PRD
+        LOAD Y
+        SUBT ONE
+        STORE Y
+        SKIPCOND 400
+        JUMP PR_L
+//OUTPUT PRODUCT
+		LOAD PRD
+		OUTPUT     
+        HALT
+//CONVERT NEG TO ABS VALUE     
+LOOP,	LOAD ABS
+		SUBT ABS
+        SUBT ABS
+        STORE ABS
+        JUMP ABS_C
+//MEMORY
+X,		DEC 0
+Y,		DEC 0
+ABS, 	DEC 0
+PRD,	DEC 0
+ONE,	DEC 1
