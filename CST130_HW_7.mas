@@ -1,5 +1,5 @@
 ﻿//GET INPUT AND DIFFERENCE
-		INPUT
+	INPUT
         STORE X
         INPUT
         STORE Y
@@ -7,7 +7,7 @@
         SUBT Y
         STORE ABS   
 //CHECK IF DIFFERENCE IS NEG 
-		LOAD ABS
+	LOAD ABS
         SKIPCOND 800
         JUMP LOOP
 //ABS VALUE LOOP
@@ -19,7 +19,7 @@ ABS_C,  LOAD X
         OUTPUT
 //GET PRODUCT
 PR_L,	LOAD PRD
-		ADD X
+	ADD X
         STORE PRD
         LOAD Y
         SUBT ONE
@@ -27,18 +27,18 @@ PR_L,	LOAD PRD
         SKIPCOND 400
         JUMP PR_L
 //OUTPUT PRODUCT
-		LOAD PRD
-		OUTPUT     
+	LOAD PRD
+	OUTPUT     
         HALT
 //CONVERT NEG TO ABS VALUE     
 LOOP,	LOAD ABS
-		SUBT ABS
+	SUBT ABS
         SUBT ABS
         STORE ABS
         JUMP ABS_C
 //MEMORY
-X,		DEC 0
-Y,		DEC 0
+X,	DEC 0
+Y,	DEC 0
 ABS, 	DEC 0
 PRD,	DEC 0
 ONE,	DEC 1
