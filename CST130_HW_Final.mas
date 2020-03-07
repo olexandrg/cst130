@@ -1,0 +1,49 @@
+//GET INPUT
+		INPUT
+    	STORE X
+    	STORE X_COPY
+    	INPUT
+    	STORE Y
+        JUMP Q_SUB
+        
+//FINAL OUTPUT
+MAIN,	LOAD Q
+		OUTPUT
+        LOAD MOD
+        OUTPUT
+        HALT
+        
+//GET QUOTIENT      
+Q_SUB,	LOAD X_COPY
+		SUBT Y
+        STORE X_COPY
+        SKIPCOND 000
+        JUMP ADD_Q
+        JUMP ABS
+        
+//INCREMENT QUOTIENT
+ADD_Q,  LOAD Q
+		ADD ONE
+        STORE Q
+        LOAD X_COPY
+        SKIPCOND 400
+        JUMP Q_SUB
+        JUMP MAIN
+        
+//GET MODULUS       
+ABS,	LOAD X_COPY
+		ADD Y
+        STORE MOD
+        JUMP MAIN
+        
+//MEMORY
+X, 		DEC 0
+Y, 		DEC 0
+Q, 		DEC 0
+ONE, 	DEC 1
+X_COPY, DEC 0
+MOD, 	DEC 0
+
+CST 130 FINAL
+Olexandr Goloshchapov
+Fri 3/6/2020 12:59 PM
