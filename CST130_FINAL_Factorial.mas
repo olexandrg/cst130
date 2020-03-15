@@ -1,0 +1,58 @@
+﻿//GET INPUT AND DIFFERENCE
+          INPUT
+          STORE X
+          SUBT ONE
+          STORE Y_COPY
+          STORE Y
+
+//GET INITIAL X * (X-1)
+LOOP_ONE, LOAD PRODUCT
+		  ADD X
+          STORE PRODUCT
+          LOAD Y
+          SUBT ONE
+          STORE Y
+          SKIPCOND 400
+          JUMP LOOP_ONE
+          
+//CHECK IF X-1 OR X-2     
+CHECK,	  LOAD Y_COPY
+          SUBT ONE
+          STORE Y_COPY
+          STORE Y
+          LOAD Y_COPY
+          SUBT ONE
+          SKIPCOND 800
+          JUMP OUTPUT
+          LOAD Y_COPY
+          SUBT TWO
+          SKIPCOND 800
+          JUMP DOUBLE
+          
+//END CHECK          
+ 		  LOAD PRODUCT
+		  STORE X
+          LOAD Y
+          SUBT ONE
+          STORE Y
+          JUMP LOOP_ONE
+ 
+//OUTPUT PRODUCT
+OUTPUT,	LOAD PRODUCT
+		OUTPUT     
+        HALT
+
+//DOUBLE
+DOUBLE,	LOAD PRODUCT
+		ADD PRODUCT
+        STORE PRODUCT
+        JUMP OUTPUT
+
+//MEMORY
+X,		DEC 0
+Y,		DEC 0
+Y_COPY, DEC 0
+TWO, 	DEC 2
+
+PRODUCT,DEC 0
+ONE,	DEC 1
